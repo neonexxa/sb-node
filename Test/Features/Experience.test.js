@@ -16,11 +16,15 @@ describe('Experience Test', () => {
     await db.Experience.destroy({ truncate: true });
   });
   it('Gets Experience', async () => {
-    await self_factory(sample_experience, 5);
+    await self_factory({ ...sample_experience, UserId: 99 });
+    await self_factory({ ...sample_experience, UserId: 98 });
     const res = await authenticated_get('/api/experience');
     res.should.have.status(200);
     res.body.should.have.property('data');
-    res.body.data.length.should.equal(5);
+    res.body.data['99'].should.have.property('wins');
+    res.body.data['99'].should.have.property('exp_points');
+    res.body.data['98'].should.have.property('wins');
+    res.body.data['98'].should.have.property('exp_points');
   });
 
   it('Creates Experience', async () => {

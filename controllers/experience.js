@@ -1,8 +1,20 @@
+/* eslint-disable max-nested-callbacks */
+const _ = require('lodash');
 const m = require('../models');
 
 function index(req, res) {
-  m.Experience.findAll()
-    .then((data) => res.json({ data }))
+  const where = req.query;
+  m.Experience.withFilter(where)
+    .then((exps) => {
+      const data = {};
+      _(exps).groupBy('UserId').forEach((userexp, UserId) => {
+        data[UserId] = {
+          wins: userexp.filter(o => o.state === 'win').length,
+          exp_points: _.sumBy(userexp, 'value'),
+        };
+      });
+      res.json({ data });
+    })
     .catch(error => res.status(500).send({ error }));
 }
 

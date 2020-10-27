@@ -22,6 +22,10 @@ module.exports = {
       longitude: {
         type: Sequelize.FLOAT(10, 6),
       },
+      images: {
+        allowNull: true,
+        type: Sequelize.TEXT,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

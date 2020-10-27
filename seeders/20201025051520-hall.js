@@ -1,4 +1,5 @@
 const faker = require('faker');
+const helper = require('../helper');
 
 module.exports = {
   up: async (queryInterface) => {
@@ -8,6 +9,7 @@ module.exports = {
       address: 'Bangi Avenue',
       latitude: faker.address.latitude(),
       longitude: faker.address.longitude(),
+      images: faker.random.arrayElement([helper.getRandomImage(), '']),
     },
     ...[...Array(100)].map(() => ({
       name: faker.address.streetName(),
@@ -15,6 +17,7 @@ module.exports = {
       address: faker.address.streetAddress(),
       latitude: faker.address.latitude(),
       longitude: faker.address.longitude(),
+      images: faker.random.arrayElement([helper.getRandomImage(), '']),
     })),
     ], {});
   },

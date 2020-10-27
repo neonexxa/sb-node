@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     address: DataTypes.STRING,
     latitude: DataTypes.FLOAT,
     longitude: DataTypes.FLOAT,
+    images: DataTypes.TEXT,
   }, {
     sequelize,
     modelName: 'Hall',

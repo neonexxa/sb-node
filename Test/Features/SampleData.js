@@ -59,6 +59,7 @@ const sample_experience = {
   value: faker.random.number({ min: 1, max: 15 }),
   UserId: faker.random.number({ min: 1, max: 100 }),
   MatchId: faker.random.number({ min: 1, max: 100 }),
+  state: faker.random.arrayElement(['win', 'lose']),
 };
 
 module.exports = {

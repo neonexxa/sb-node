@@ -16,9 +16,9 @@ router.delete('/hall/:id', m.requireAdmin, c.hall.destroy);
 router.post('/hall', m.requireAdmin, c.hall.create);
 
 router.get('/room', m.requireAdminOrUser, c.room.index);
-router.post('/room/:id', m.requireAdmin, c.room.update);
-router.delete('/room/:id', m.requireAdmin, c.room.destroy);
-router.post('/room', m.requireAdmin, c.room.create);
+router.post('/room/:id', m.requireAdminOrUser, c.room.update);
+router.delete('/room/:id', m.requireAdminOrUser, c.room.destroy);
+router.post('/room', m.requireAdminOrUser, c.room.create);
 
 router.get('/player', m.requireAdminOrUser, c.player.index);
 router.post('/player/:id', m.requireAdmin, c.player.update);

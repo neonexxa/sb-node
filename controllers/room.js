@@ -1,7 +1,9 @@
 const m = require('../models');
 
 function index(req, res) {
-  m.Room.findAll()
+  const where = {}
+  where.id = req.query.RoomId
+  m.Room.findAll({where})
     .then((data) => res.json({ data }))
     .catch(error => res.status(500).send({ error }));
 }

@@ -15,6 +15,7 @@ module.exports = {
       },
       state: {
         type: Sequelize.STRING,
+        defaultValue: 'invited',
       },
       createdAt: {
         allowNull: false,

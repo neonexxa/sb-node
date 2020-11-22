@@ -19,7 +19,7 @@ module.exports = {
       phone: faker.phone.phoneNumber(),
       password: bcrypt.hashSync('password', bcrypt.genSaltSync()),
       RoleId: Math.floor((Math.random() * 4) + 1),
-      image: faker.random.arrayElement([helper.getRandomImage(), '']),
+      image: helper.getRandomImage(),
       verifiedAt: faker.random.boolean() ? null : faker.date.past(2),
     })),
     ], {});

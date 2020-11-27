@@ -27,7 +27,6 @@ function index(req, res) {
         }
         data = { ...rooms[0], matches, players };
       }
-      console.log(data);
       res.json({ data });
     })
     .catch(error => res.status(500).send({ error }));
@@ -45,7 +44,6 @@ function destroy(req, res) {
     .catch(error => res.status(500).send({ error }));
 }
 function create(req, res) {
-  console.log(req.body.input);
   m.Room.create(req.body.input)
     .then((data) => res.json({ data }))
     .catch(error => res.status(500).send({ error }));

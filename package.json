@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Shuttle Breaker Node",
   "main": "app.js",
-  "engines": {
-    "node": "14.4.0"
-  },
   "dependencies": {
     "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",

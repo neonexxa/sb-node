@@ -1,21 +1,17 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Players', {
+    await queryInterface.createTable('Nops', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      RoomId: {
-        type: Sequelize.INTEGER,
-      },
-      UserId: {
-        type: Sequelize.INTEGER,
-      },
-      state: {
+      name: {
         type: Sequelize.STRING,
-        defaultValue: 'invited',
+      },
+      value: {
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
@@ -30,6 +26,6 @@ module.exports = {
     });
   },
   down: async (queryInterface) => {
-    await queryInterface.dropTable('Players');
+    await queryInterface.dropTable('Nops');
   },
 };

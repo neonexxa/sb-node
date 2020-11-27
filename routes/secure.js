@@ -7,7 +7,7 @@ const m = require('../middleware');
 router.get('/role', c.role.index);
 router.get('/activitylog', m.requireAdminOrUser, c.activitylog.index);
 
-router.get('/users', m.requireAdmin, c.user.index);
+router.get('/users', c.user.index);
 router.post('/user/:UserId', c.userUpdate.update);
 
 router.get('/hall', m.requireAdminOrUser, c.hall.index);
@@ -16,14 +16,14 @@ router.delete('/hall/:id', m.requireAdmin, c.hall.destroy);
 router.post('/hall', m.requireAdmin, c.hall.create);
 
 router.get('/room', m.requireAdminOrUser, c.room.index);
-router.post('/room/:id', m.requireAdmin, c.room.update);
-router.delete('/room/:id', m.requireAdmin, c.room.destroy);
-router.post('/room', m.requireAdmin, c.room.create);
+router.post('/room/:id', m.requireAdminOrUser, c.room.update);
+router.delete('/room/:id', m.requireAdminOrUser, c.room.destroy);
+router.post('/room', m.requireAdminOrUser, c.room.create);
 
 router.get('/player', m.requireAdminOrUser, c.player.index);
-router.post('/player/:id', m.requireAdmin, c.player.update);
-router.delete('/player/:id', m.requireAdmin, c.player.destroy);
-router.post('/player', m.requireAdmin, c.player.create);
+router.post('/player/:id', c.player.update);
+router.delete('/player/:id', c.player.destroy);
+router.post('/player', c.player.create);
 
 router.get('/match', m.requireAdminOrUser, c.match.index);
 router.delete('/match/:id', m.requireAdmin, c.match.destroy);

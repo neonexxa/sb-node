@@ -7,7 +7,7 @@ const m = require('../middleware');
 router.get('/role', c.role.index);
 router.get('/activitylog', m.requireAdminOrUser, c.activitylog.index);
 
-router.get('/users', c.user.index);
+router.get('/users', m.requireAdmin, c.user.index);
 router.post('/user/:UserId', c.userUpdate.update);
 
 router.get('/hall', m.requireAdminOrUser, c.hall.index);
